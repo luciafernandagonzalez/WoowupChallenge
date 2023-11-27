@@ -1,8 +1,8 @@
 const Alerta = require('./Alerta');
 
 class AlertaUrgente extends Alerta {
-    constructor(id, tema, mensaje, destinatarioId = null) {
-        super(id, 'urgente', tema, mensaje, destinatarioId);
+    constructor(id, tema, mensaje, fechaExpiracion) {
+        super(id, 'urgente', tema, mensaje, fechaExpiracion);
     }
 }
 

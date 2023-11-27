@@ -1,28 +1,11 @@
-
 class Alerta {
-    constructor(id, tipo, tema, mensaje, fechaExpiracion, destinatarioId = null){
+    constructor(id, tipo, tema, mensaje, fechaExpiracion){
         this.id = id;
-        this.tipo = tipo;
+        this.tipo = tipo; //tipo informativa - urgente
         this.tema = tema;
         this.mensaje = mensaje;
-        this.destinatarioId = destinatarioId;
-        this.fechaExpiracion = fechaExpiracion;
-        this.leida = false;
+        if(fechaExpiracion) { this.fechaExpiracion = new Date(fechaExpiracion) }
+        else this.fechaExpiracion=null;
     }
-
-    enviarAlertadeTema(usuariosSubscritos) {
-        usuariosSubscritos.forEach(usuario => {
-            usuario.recibirAlerta(this);
-        });
-    }
-
-    // alertaExpirada() {
-    //     const ahora = new Date();
-    //     if(this.tiempo < ahora) {
-    //         return true;
-    //     } else return false;
-    // }
-
-
 }
 module.exports = Alerta;

@@ -2,35 +2,37 @@ class Usuario {
     constructor(id, nombre) {
         this.id = id;
         this.nombre = nombre;
-        this.temasSubscritos = new Set();
-        this.alertasNoLeidas = []
+        this.alertasNoLeidas = [] //las leidas van borrandose
     }
 
     
     recibirAlerta(alerta) {
-        if (this.temasSubscritos.has(alerta.tema) || this.id === alerta.destinatarioId) {
-            this.alertasNoLeidas.push(alerta);
+        if(alerta.tipo == 'urgente'){
+            this.alertasNoLeidas.unshift(alerta);
+        }else if(alerta.tipo == 'informativa'){
+            this.alertasNoLeidas.push(alerta); 
         }
     }
-    
-    suscribirseTema(tema) {
-        this.temasSubscritos.add(tema);
-    }    
 
     obtenerAlertasNoLeidas() {
-        return this.alertasNoLeidas.filter(alerta => !alerta.leida);
+        return this.alertasNoLeidas;
     }
 
     obtenerAlertasNileidasNiExpiradas(){
         const fechaActual = new Date();
 
-        return this.alertasNoLeidas.filter(alerta => !alerta.leida && alerta.fechaExpiracion > fechaActual);
+        return this.alertasNoLeidas.filter(alerta => {
+            if(alerta.fechaExpiracion) {
+                return alerta.fechaExpiracion > fechaActual;
+            }
+            return true;
+        })
     }
 
     marcarAlertaComoLeida(alertaId) {
-        const alerta = this.alertasNoLeidas.find(alerta => alerta.id === alertaId);
-        if (alerta) {
-            alerta.leida = true;
+        const indexAlerta = this.alertasNoLeidas.findIndex(alerta => alerta.id === alertaId);
+        if (indexAlerta !== -1) {
+            this.alertasNoLeidas.splice(indexAlerta, 1);
         }
     }
 }
