@@ -1,5 +1,5 @@
-Los tests se ejecutan con "npm test"
-El modelo de datos esta incluido en el archivo challengeWoowup\diagrama.png
+* Los tests se ejecutan con "npm test"
+* El modelo de datos esta incluido en el archivo challengeWoowup\diagrama.png
 
 Supuestos:
 
