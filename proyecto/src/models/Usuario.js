@@ -7,9 +7,9 @@ class Usuario {
 
     
     recibirAlerta(alerta) {
-        if(alerta.tipo == 'urgente'){
+        if(alerta.tipo === 'urgente'){
             this.alertasNoLeidas.unshift(alerta);
-        }else if(alerta.tipo == 'informativa'){
+        }else if(alerta.tipo === 'informativa'){
             this.alertasNoLeidas.push(alerta); 
         }
     }
@@ -25,7 +25,7 @@ class Usuario {
             if(alerta.fechaExpiracion) {
                 return alerta.fechaExpiracion > fechaActual;
             }
-            return true;
+            // return true;
         })
     }
 

@@ -18,8 +18,6 @@ describe('Pruebas para la clase Usuario', () => {
         alertaInformativaT1 = new AlertaInformativa(1, tema1, 'Mensaje de alerta 1', new Date('2023-12-20T22:30:00'));
         alertaInformativaT2 = new AlertaInformativa(2, tema2, 'Mensaje de alerta 2, tema 2');
         alertaUrgenteExpiradaT2 = new AlertaUrgente(3, tema2, 'Mensaje de alerta 3, tema 2', new Date('2022-12-20T22:30:00'));
-
-        //jest.mock
     })
     
     //Testeo de funcionalidad 1

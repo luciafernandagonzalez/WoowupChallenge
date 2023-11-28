@@ -5,7 +5,7 @@ class Alerta {
         this.tema = tema;
         this.mensaje = mensaje;
         if(fechaExpiracion) { this.fechaExpiracion = new Date(fechaExpiracion) }
-        else this.fechaExpiracion=null;
+        else this.fechaExpiracion= new Date('2999-01-01');
     }
 }
 module.exports = Alerta;

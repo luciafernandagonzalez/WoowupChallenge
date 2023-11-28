@@ -11,9 +11,9 @@ class Tema {
     }
 
     enviarAlertadeTema(alerta) { 
-        if(alerta.tipo == 'urgente'){
+        if(alerta.tipo === 'urgente'){
             this.alertas.unshift(alerta);
-        }else if(alerta.tipo == 'informativa'){
+        }else if(alerta.tipo === 'informativa'){
             this.alertas.push(alerta); //guarda la alerta en el final del array
         }
         for(const usuario of this.usuariosSuscritos) { //manda a los usuarios suscritos
